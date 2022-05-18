@@ -1,4 +1,6 @@
 "use strict";
+
+console.log('hello world!');
 // this library lets us access our .env file
 require("dotenv").config();
 
@@ -28,12 +30,17 @@ app.get("/", (req, res) => {
 });
 
 //create a route for handling weather data
-app.get("/weather", (req, res) => {
+app.get("/weather", (req, res, next) => {
+  try{
   const cities = req.query.cities;
   console.log("weather requested: ", cities);
   const forecastResults = new Forecast(cities);
-  console.log("Forecast Result: ", forecastResults);
-  res.send(forecastResults);
+  console.log("Forecast Result: ", forecastResults.weathArr);
+  res.status(200).send(forecastResults.weathArr); //always send in a good status of 200 that everything went good.
+  } catch(error) {
+    error.customMessage = 'Something went wrong in your weather API call.'; //the catch is only gonna run if something goes wrong in the try. This is good for error handling.
+    next(error);
+  } 
 });
 // this class will be used to fullfill request for date and description
 //reading the weather from our dummy data. static is a property that belongs to the Class no the instance of weather object that is created from the class.
@@ -49,6 +56,11 @@ class Forecast {
   }
 
 };
+
+//error handling function, Must be last app.use function in my application
+app.use((error, req, res, next) => {
+res.status(500).send(`Something went wrong during an API call. ERROR: ${error.customMessage}`);
+})
 
 // this turns the server on to the port that you specifed in your .env file
 // listen tells our express server which port to send data through.
