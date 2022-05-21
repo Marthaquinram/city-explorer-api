@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
 //create a route for handling weather data
 app.get('/weather', async (req, res, next) => {
   const {lat,lon} = req.query;
+  //object destructuring
   console.log(req.query);
   console.log(lat);
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?key=${process.env.WEATHER_API_KEY}&lat=${lat}&lon=${lon}&days=5`;
@@ -74,10 +75,14 @@ app.get('/movies', async (req, res, next) => {
 //reading the weather from our dummy data. static is a property that belongs to the Class no the instance of weather object that is created from the class.
 class Movies {
   constructor(movie) {
-    this.description = movie.overview;
     this.title = movie.title;
+    this.description = movie.overview;
+    this.poster = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+    this.avgVotes = movie.vote_average;
+    this.totalVotes = movie.vote_count;
+    this.popularity = movie.popularity;
+    this.release = movie.release_date;
   }
-
 }
 //error handling function, Must be last app.use function in my application
 app.use((error, req, res, next) => {

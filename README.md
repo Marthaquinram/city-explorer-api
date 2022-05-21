@@ -1,16 +1,17 @@
 # city-explorer-api
-# Project Name
+
 
 **Author**: Martha Quintanilla-Ramirez
 **Version**: 1.0.0 
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+- Building the backend server that retrieves weather and movie information and sends it to the front end.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+- I am making sure my server.js is wired up to communicate properly with my front end server.
 
 ## Architecture
+- 
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
@@ -32,3 +33,16 @@ Start time: 2pm
 Finish time: 9pm
 
 Actual time needed to complete: 7 hours (was watching the lecture at the same time)
+
+
+Name of feature: As a user of City Explorer, I want to see info about movies related to the city I searched, so that I can learn more about the destination.
+
+Estimate of time needed to complete: 3hr. 
+
+Collaborator: Zayah (shout out to Zayah!!!!)
+
+Start time: 8pm
+
+Finish time: 11pm
+
+Actual time needed to complete: 3hours
