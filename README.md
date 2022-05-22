@@ -46,3 +46,15 @@ Start time: 8pm
 Finish time: 11pm
 
 Actual time needed to complete: 3hours
+
+Name of feature: Lab07 - 08
+
+Estimate of time needed to complete: 3hr. 
+
+Collaborator: Luis Zayah (shout out to Zayah and Luis!!!!)
+
+Start time: 1:30pm
+
+Finish time: 5:10pm
+
+Actual time needed to complete: 3.5 hours
