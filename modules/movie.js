@@ -10,8 +10,10 @@ async function getMovies(req, res, next) {
   try{
     const response = await axios.get(url);
     console.log('This is my response! ', response);
-    const results = response.data.results.map(movie => new Movies(movie));
-    res.send(results);//response reps awaiting for axios, hey movie do this search, response = what they give back to us, we package it up into movies results and ship it off.
+    const results = response.data.results;
+    const formattedResults = results.map(movie => new Movies(movie));
+    console.log(formattedResults);
+    res.send(formattedResults);//response reps awaiting for axios, hey movie do this search, response = what they give back to us, we package it up into movies results and ship it off.
   } catch(error) {
     error.customMessage = 'Something went wrong in your weather API call.'; //the catch is only gonna run if something goes wrong in the try. This is good for error handling.
     next(error);
