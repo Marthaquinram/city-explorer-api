@@ -7,6 +7,7 @@ const app = express();
 const cors = require('cors');
 const getWeather = require('./modules/weather');
 const getMovies = require('./modules/movie');
+const cache = require('./modules/cache');
 
 app.use(cors());
 
@@ -22,7 +23,7 @@ app.get('/weather', getWeather);
 
 app.get('/movies', getMovies );
 
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   res.status(500).send(`Something went wrong during an API call. ERROR: ${error.customMessage}`);
 });
 
