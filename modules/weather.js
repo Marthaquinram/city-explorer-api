@@ -1,5 +1,7 @@
 'use strict';
 const axios = require('axios');
+// let cache = require('./cache.js');
+
 
 
 async function getWeather (req, res, next) {
@@ -14,14 +16,30 @@ async function getWeather (req, res, next) {
     error.customMessage = 'Something went wrong in your weather API call.';
     next(error);
   }
-}
 
-class Forecast {
-  constructor(day) {
-    this.description = day.weather.description;
-    this.date = day.datetime;
+
+  //     if (cache[key] && (Date.now() - cache[key].timestamp < 50000)) {
+  //       console.log('Cache hit');
+  //     } else {
+  //       console.log('Cache miss');
+  //       cache[key] = {};
+  //       cache[key].timestamp = Date.now();
+  //       cache[key].data = axios.get(url)
+  //         .then(response => parseWeather(response.data));
+  //     }
+
+
+  //     return cache[key].data;
+  //   }
+  //
+
+
+  class Forecast {
+    constructor(day) {
+      this.description = day.weather.description;
+      this.date = day.datetime;
+    }
+
   }
-
 }
-
 module.exports = getWeather;

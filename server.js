@@ -8,6 +8,7 @@ const cors = require('cors');
 const getWeather = require('./modules/weather');
 const getMovies = require('./modules/movie');
 
+
 app.use(cors());
 
 const PORT = process.env.PORT;
