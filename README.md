@@ -63,9 +63,10 @@ Actual time needed to complete: 3.5 hours
 Name of feature:As a user, I want the application to work with recent results, so that I can see info without the app doing unnecessary API calls.
 
 Estimate of time needed to complete: 2 hours
+Collaborators: Zayah
 
 Start time: 930pm
 
-Finish time:
+Finish time:11:43pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2.5 hours
