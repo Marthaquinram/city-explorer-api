@@ -1,24 +1,31 @@
 'use strict';
 
 const axios = require('axios');
+let cache = require('./cache.js');
 
-async function getMovies(req, res, next) {
+async function getMovies(req, res) {
   let search = req.query.search;
   search = search.split(',')[0];//going to return array split by commas
-  console.log(search, 'Movie Search');
+  const key = 'my-key:' + search;
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${search}`;
-  try{
-    const response = await axios.get(url);
-    console.log('This is my response! ', response);
-    const results = response.data.results;
-    const formattedResults = results.map(movie => new Movies(movie));
-    console.log(formattedResults);
-    res.send(formattedResults);//response reps awaiting for axios, hey movie do this search, response = what they give back to us, we package it up into movies results and ship it off.
-  } catch(error) {
-    error.customMessage = 'Something went wrong in your weather API call.'; //the catch is only gonna run if something goes wrong in the try. This is good for error handling.
-    next(error);
+  if(cache[key] !==undefined && (Date.now() - cache[key].timestamp < 50000)){
+    console.log('Cache hit', cache[key].timestamp);
+    return cache[key];
+  } else{
+    console.log('Cache miss');
+
+    axios
+      .get(url)
+      .then(response => {
+        const results = response.data.results.map(movie => new Movies(movie));
+        cache[key] = results;
+        res.status(200).send(results);
+      })
+      .catch(error => res.status(500).send(`${error} `));
   }
 }
+
+
 class Movies {
   constructor(movie) {
     this.title = movie.title;

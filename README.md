@@ -11,8 +11,8 @@
 - I am making sure my server.js is wired up to communicate properly with my front end server.
 
 ## Architecture
-- 
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+- I imported the dotenv, express, app. cors, and cache libraries.
+
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -20,7 +20,7 @@
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+- Sarah, Zayah, Luis
 
 
 Name of feature: Set up your server repository
@@ -71,3 +71,17 @@ Start time: 930pm
 Finish time:11:43pm
 
 Actual time needed to complete: 2.5 hours
+
+
+
+
+Name of feature:Day 2 of Lab 10
+
+Estimate of time needed to complete: 2 hours
+Author: Martha
+
+Start time: 7pm
+
+Finish time:9pm
+
+Actual time needed to complete: 2 hours
